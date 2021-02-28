@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Incoming Orders</title>
+
+</head>
+
+<body>
+    <h1>Incoming Orders</h1>
+
+    <!-- use canvas to visually display amount of each entree that needs to be made -->
+    <section id="entreeSort">
+        <h2>orders sorted by entree</h2>
+        <canvas width="640" height="480"></canvas>
+    </section>
+
+    <!-- empty section until program pulls orders from localStorage -->
+    <section id="partySort">
+        <h2>orders organized by party</h2>
+        <section id="partySection"></section>
+    </section>
+
+</body>
+
+<script>
+    'use strict';
+
+    window.onload = init;
+
+    function init(){
+        //array for all orders that need to be made
+        let orders = [];
+
+        //amount of orders based on table
+        let orderAmount = window.localStorage.getItem('orderAmount');
+        for(let i = 0; i < orderAmount; i++){
+            let party = window.localStorage.getItem(i);
+            orders[i] = party;
+        }
+    }
+
+</script>
+
+</html>
